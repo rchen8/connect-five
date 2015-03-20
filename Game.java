@@ -1,41 +1,61 @@
-import java.util.Scanner;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.JFrame;
 
 /**
  * @author Richard Chen
  *
  */
 public class Game {
+	private static final int FRAME_SIZE = 500;
+
 	/**
 	 * 
 	 */
 	private void run() {
-		Board board = new Board();
-		System.out.println(board);
+		final Board board = new Board();
+		final Human human = new Human(board);
+		final AI ai = new AI(board);
 
-		Scanner scan = new Scanner(System.in);
-		while (scan.hasNextInt()) {
-			int x = scan.nextInt();
-			int y = scan.nextInt();
-			if (!board.isValidMove(x, y)) {
-				System.out.println("Invalid move.");
-				continue;
+		JFrame frame = new JFrame("Connect Five");
+		frame.setSize(FRAME_SIZE, FRAME_SIZE);
+		frame.setResizable(false);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		final BoardComponent component = new BoardComponent(board);
+		component.addMouseListener(new MouseListener() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 			}
 
-			Human.move(board, x, y);
-			if (board.getWinner() == Human.HUMAN_PLAYER) {
-				System.out.println(board + "\nYou win!");
-				break;
+			@Override
+			public void mouseEntered(MouseEvent e) {
 			}
 
-			AI.move(board);
-			if (board.getWinner() == AI.AI_PLAYER) {
-				System.out.println(board + "\nYou lose!");
-				break;
+			@Override
+			public void mouseExited(MouseEvent e) {
 			}
 
-			System.out.println(board);
-		}
-		scan.close();
+			@Override
+			public void mousePressed(MouseEvent e) {
+				int x = e.getY() / BoardComponent.SQUARE_SIZE;
+				int y = e.getX() / BoardComponent.SQUARE_SIZE;
+				if (board.getBoard(true)[x][y] >= 0 && board.getWinner() == 0) {
+					human.move(x, y);
+					if (board.getWinner() == 0)
+						ai.move();
+					component.repaint();
+				}
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+			}
+		});
+
+		frame.add(component);
+		frame.setVisible(true);
 	}
 
 	/**
