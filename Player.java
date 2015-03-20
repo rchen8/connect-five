@@ -1,20 +1,8 @@
-import java.awt.Point;
-import java.util.ArrayList;
-
 /**
  * @author Richard Chen
  *
  */
 public class Player {
-	/**
-	 * 
-	 */
-	protected static ArrayList<Point> openEnded;
-
-	/**
-	 * 
-	 */
-	private static final int OPEN_THREE = 3;
 	private static final int FIVE_IN_ROW = 5;
 	private static final int NUM_DIRECTION = 8;
 	private static final int BASE = 10;
@@ -31,7 +19,6 @@ public class Player {
 		int[][] board = game.getBoard(player == Human.HUMAN_PLAYER);
 		game.move(player, x, y);
 
-		openEnded = new ArrayList<>();
 		for (int i = 0; i < NUM_DIRECTION; i++) {
 			int dx = x + ADJACENT_DIRECTION[0][i];
 			int dy = y + ADJACENT_DIRECTION[1][i];
@@ -92,10 +79,6 @@ public class Player {
 			x += ADJACENT_DIRECTION[0][index];
 			y += ADJACENT_DIRECTION[1][index];
 		}
-
-		if (rowLength == OPEN_THREE && Board.isValid(x, y) && board[x][y] >= 0
-				&& !openEnded.contains(new Point(x, y)))
-			openEnded.add(new Point(x, y));
 
 		return rowLength;
 	}
