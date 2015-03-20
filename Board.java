@@ -5,16 +5,10 @@ import java.util.Arrays;
  *
  */
 public class Board {
-	/**
-	 * 
-	 */
 	public static final int BOARD_SIZE = 15;
-	
-	/**
-	 * 
-	 */
-	private int winner;
+
 	private int[][] human, ai;
+	private int winner;
 
 	/**
 	 * 
@@ -25,7 +19,7 @@ public class Board {
 		winner = 0;
 	}
 
-	/** 
+	/**
 	 * @see java.lang.Object#clone()
 	 */
 	@Override
@@ -53,9 +47,9 @@ public class Board {
 	 * @return
 	 */
 	public int getBoardValue() {
-		if (winner != 0)
-			return winner == Human.HUMAN_PLAYER ? Integer.MIN_VALUE
-					: Integer.MAX_VALUE;
+		// if (winner != 0)
+		// return winner == Human.HUMAN_PLAYER ? Integer.MAX_VALUE
+		// : Integer.MIN_VALUE;
 
 		int value = 0;
 		for (int i = 0; i < BOARD_SIZE; i++)
