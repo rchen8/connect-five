@@ -7,23 +7,26 @@ import java.util.Collections;
  *
  */
 public class AI extends Player {
-	/**
-	 * 
-	 */
 	public static final int AI_PLAYER = -2;
 
-	/**
-	 * 
-	 */
 	private static final int BRANCHING_FACTOR = 4;
 	private static final int LOOK_AHEAD = 9;
 
+	private Board game;
+
 	/**
+	 * 
 	 * @param game
 	 */
-	public static void move(Board game) {
-		ArrayList<Point> moves = !openEnded.isEmpty() ? openEnded
-				: getPossibleMoves(game);
+	public AI(Board game) {
+		this.game = game;
+	}
+
+	/**
+	 * 
+	 */
+	public void move() {
+		ArrayList<Point> moves = getPossibleMoves(game);
 
 		int max = Integer.MIN_VALUE;
 		Point bestMove = null;
@@ -38,7 +41,8 @@ public class AI extends Player {
 			}
 		}
 
-		move(game, AI_PLAYER, bestMove.x, bestMove.y);
+		// System.out.println();
+		super.move(game, AI_PLAYER, bestMove.x, bestMove.y);
 	}
 
 	/**
@@ -50,16 +54,15 @@ public class AI extends Player {
 	 * @param max
 	 * @return
 	 */
-	private static int minimax(Board game, Point move, int depth, int alpha,
-			int beta, boolean max) {
+	private int minimax(Board game, Point move, int depth, int alpha, int beta,
+			boolean max) {
 		if (depth == 0 || game.getWinner() != 0)
 			return game.getBoardValue();
 
 		Board copy = game.clone();
-		move(copy, max ? AI_PLAYER : Human.HUMAN_PLAYER, move.x, move.y);
+		super.move(copy, max ? AI_PLAYER : Human.HUMAN_PLAYER, move.x, move.y);
 
-		ArrayList<Point> moves = !openEnded.isEmpty() ? openEnded
-				: getPossibleMoves(game);
+		ArrayList<Point> moves = getPossibleMoves(game);
 		if (max) {
 			int bestValue = Integer.MIN_VALUE;
 			for (int i = 0; i < Math.min(moves.size(), BRANCHING_FACTOR); i++) {
@@ -93,7 +96,7 @@ public class AI extends Player {
 	 * @param game
 	 * @return
 	 */
-	private static ArrayList<Point> getPossibleMoves(Board game) {
+	private ArrayList<Point> getPossibleMoves(Board game) {
 		ArrayList<Point3D> moves = new ArrayList<>();
 		int[][] human = game.getBoard(true);
 		int[][] ai = game.getBoard(false);
@@ -112,7 +115,7 @@ public class AI extends Player {
 	 *
 	 */
 	@SuppressWarnings("serial")
-	private static class Point3D extends Point implements Comparable<Point3D> {
+	private class Point3D extends Point implements Comparable<Point3D> {
 		private int z;
 
 		/**
