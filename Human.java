@@ -3,17 +3,23 @@
  *
  */
 public class Human extends Player {
-	/**
-	 * 
-	 */
 	public static final int HUMAN_PLAYER = -1;
 
+	private Board game;
+
 	/**
+	 * 
 	 * @param game
+	 */
+	public Human(Board game) {
+		this.game = game;
+	}
+
+	/**
 	 * @param x
 	 * @param y
 	 */
-	public static void move(Board game, int x, int y) {
-		move(game, HUMAN_PLAYER, x, y);
+	public void move(int x, int y) {
+		super.move(game, HUMAN_PLAYER, x, y);
 	}
 }
