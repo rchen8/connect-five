@@ -47,10 +47,6 @@ public class Board {
 	 * @return
 	 */
 	public int getBoardValue() {
-		// if (winner != 0)
-		// return winner == Human.HUMAN_PLAYER ? Integer.MAX_VALUE
-		// : Integer.MIN_VALUE;
-
 		int value = 0;
 		for (int i = 0; i < BOARD_SIZE; i++)
 			for (int j = 0; j < BOARD_SIZE; j++)
