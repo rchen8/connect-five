@@ -56,8 +56,10 @@ public class AI extends Player {
 	 */
 	private int minimax(Board game, Point move, int depth, int alpha, int beta,
 			boolean max) {
-		if (depth == 0 || game.getWinner() != 0)
+		if (depth == 0)
 			return game.getBoardValue();
+		else if (game.getWinner() != 0)
+			return -depth * game.getBoardValue();
 
 		Board copy = game.clone();
 		super.move(copy, max ? AI_PLAYER : Human.HUMAN_PLAYER, move.x, move.y);
