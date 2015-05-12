@@ -4,14 +4,22 @@ import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 
 /**
+ * The Game class implements the client code and creates the main window for the
+ * game.
+ * 
  * @author Richard Chen
  *
  */
 public class Game {
-	private static final int FRAME_SIZE = 500;
+	/**
+	 * The number of pixels of the main window
+	 */
+	private static final int FRAME_WIDTH = 457;
+	private static final int FRAME_HEIGHT = 483;
 
 	/**
-	 * 
+	 * Initializes the game components and implements a mouse listener that
+	 * responds to user input for moves
 	 */
 	private void run() {
 		final Board board = new Board();
@@ -19,7 +27,7 @@ public class Game {
 		final AI ai = new AI(board);
 
 		JFrame frame = new JFrame("Connect Five");
-		frame.setSize(FRAME_SIZE, FRAME_SIZE);
+		frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -59,7 +67,10 @@ public class Game {
 	}
 
 	/**
+	 * Instantiates the game engine and executes the client code
+	 * 
 	 * @param args
+	 *            the command line arguments
 	 */
 	public static void main(String[] args) {
 		new Game().run();
