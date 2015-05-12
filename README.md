@@ -30,10 +30,10 @@ Clone the repository and `cd` into the same directory.
 `$ git clone http://github.com/rchen8/Connect-Five.git`  
 `$ cd Connect-Five`
 
-While in the same directory, compile **Game.java**  
+While in the same directory, compile **Game.java**.  
 `$ javac Game.java`
 
-To run the game  
+Run the game.  
 `$ java Game`
 
 ### About
