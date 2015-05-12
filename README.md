@@ -22,7 +22,7 @@ The human (opening player) plays against the computer (the opposing player). AI 
 * [Heuristic evalation function](http://en.wikipedia.org/wiki/Evaluation_function) - A function used to estimate the value of a position in the minimax algorithm. The function looks only at the current position and does not explore possible moves (therefore static).
 
 ### Prerequisites
-* Java JDK 1.7 or higher
+* Java JDK 1.7 or higher  
 For convenience, you should add the `/bin` directory to the `PATH` environment variable.
 
 ### Getting Started
