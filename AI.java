@@ -3,27 +3,42 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
+ * The AI class represents an AI player in the game implements the algorithms
+ * that calculate the optimal move for the computer.
+ * 
  * @author Richard Chen
  *
  */
 public class AI extends Player {
+	/**
+	 * Value indicating an AI player
+	 */
 	public static final int AI_PLAYER = -2;
 
+	/**
+	 * Constants used for minimax algorithm calculations
+	 */
 	private static final int BRANCHING_FACTOR = 4;
 	private static final int LOOK_AHEAD = 9;
 
+	/**
+	 * The connect-five game
+	 */
 	private Board game;
 
 	/**
+	 * Constructs an AI player for the game
 	 * 
 	 * @param game
+	 *            the connect-five game
 	 */
 	public AI(Board game) {
 		this.game = game;
 	}
 
 	/**
-	 * 
+	 * Gets the possible legal moves, calls the minimax function on the best
+	 * candidates, and moves the AI player
 	 */
 	public void move() {
 		ArrayList<Point> moves = getPossibleMoves(game);
@@ -46,16 +61,29 @@ public class AI extends Player {
 	}
 
 	/**
+	 * The recursive function that uses minimax with alpha-beta pruning and
+	 * heuristic search to estimate the optimal move in the game tree
+	 * 
 	 * @param game
+	 *            the connect-five game
 	 * @param move
+	 *            the move of interest
 	 * @param depth
+	 *            the depth level of the search tree
 	 * @param alpha
+	 *            the maximum value that the maximizing player is assured of
 	 * @param beta
+	 *            the minimum value that the minimizing player is assured of
 	 * @param max
-	 * @return
+	 *            true if the move is for the maximizing player, false otherwise
+	 * @return the heuristic value of the move
+	 * @see http 
+	 *      ://en.wikipedia.org/wiki/Minimax#Minimax_algorithm_with_alternate_moves
+	 * @see http://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning
 	 */
 	private int minimax(Board game, Point move, int depth, int alpha, int beta,
 			boolean max) {
+		// return the heuristic value if the node is a terminal node
 		if (depth == 0)
 			return game.getBoardValue();
 		else if (game.getWinner() != 0)
@@ -95,8 +123,12 @@ public class AI extends Player {
 	}
 
 	/**
+	 * Gets the possible legal move of the AI player
+	 * 
 	 * @param game
-	 * @return
+	 *            the connect-five game
+	 * @return a list of possible moves, sorted in descending order of their
+	 *         initial heuristic value
 	 */
 	private ArrayList<Point> getPossibleMoves(Board game) {
 		ArrayList<Point3D> moves = new ArrayList<>();
@@ -113,17 +145,28 @@ public class AI extends Player {
 	}
 
 	/**
+	 * Inner class that uses the z-coordinate to store the heuristic value of
+	 * the move
+	 * 
 	 * @author Richard Chen
 	 *
 	 */
 	@SuppressWarnings("serial")
 	private class Point3D extends Point implements Comparable<Point3D> {
+		/**
+		 * The heuristic value of the move
+		 */
 		private int z;
 
 		/**
+		 * Constructs a Point3D object representing the move
+		 * 
 		 * @param x
+		 *            the x-coordinate of the move
 		 * @param y
+		 *            the y-coordinate of the move
 		 * @param z
+		 *            the heuristic value of the move
 		 */
 		private Point3D(int x, int y, int z) {
 			super(x, y);
@@ -131,6 +174,10 @@ public class AI extends Player {
 		}
 
 		/**
+		 * Compares Point3D based on heuristic value
+		 * 
+		 * @param pt
+		 *            the Point3D compared to
 		 * @see java.lang.Comparable#compareTo(java.lang.Object)
 		 */
 		@Override
