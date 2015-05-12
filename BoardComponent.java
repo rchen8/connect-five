@@ -5,25 +5,38 @@ import java.awt.Graphics2D;
 import javax.swing.JComponent;
 
 /**
+ * The BoardComponent class creates the GUI component for the connect-five game.
  * 
  * @author Richard Chen
  *
  */
 @SuppressWarnings("serial")
 public class BoardComponent extends JComponent {
+	/**
+	 * Number of pixels for a single coordinate
+	 */
 	public static final int SQUARE_SIZE = 30;
 
+	/**
+	 * The connect-five game
+	 */
 	private Board game;
 
 	/**
+	 * Constructs a GUI component for the game
 	 * 
 	 * @param game
+	 *            the connect-five game
 	 */
 	public BoardComponent(Board game) {
 		this.game = game;
 	}
 
 	/**
+	 * Draws the components of the game
+	 * 
+	 * @param the
+	 *            graphics context
 	 * @see javax.swing.JComponent#paintComponents(Graphics)
 	 */
 	@Override
