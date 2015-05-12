@@ -36,7 +36,7 @@ While in the same directory, compile **Game.java**
 To run the game  
 `$ java Game`
 
-### Credits
+### About
 Created by Richard Chen  
 Email: richardchen39@gmail.com
 
