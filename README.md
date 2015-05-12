@@ -1,15 +1,15 @@
 # Connect-Five
-### Artificial intelligence for a connect-five board game.
+Artificial intelligence for a connect-five board game.
 
 Also known as [Gomoku](http://en.wikipedia.org/wiki/Gomoku) or [Renju](http://en.wikipedia.org/wiki/Renju). Two players alternate in placing their color on an empty square. The winner is the first player to get an unbroken row of five stones horizontally, vertically, or diagonally.
 
-**Disallowed moves**
+**Disallowed moves**  
 There are certain moves that the opening player is not allowed to make:
 * **Double three** – The opening player cannot place their color that builds two separate lines with three colors in unbroken rows (i.e. rows not blocked by the opposing player's color).
 * **Double four** – The opening player cannot place their color that builds two separate lines with four colors in a row.
 * **Overline** – six or more colors in a row.
 
-**Winning**
+**Winning**  
 The opening player can win the game only by placing five colors in a row (vertically, horizontally or diagonally).
 The opposing player can win by either:
 * Getting five (or more) colors in a row
@@ -25,13 +25,13 @@ The human (opening player) plays against the computer (the opposing player). AI 
 * Java JDK 1.7 or higher
 
 ## Getting Started
-Clone the repository and 'cd' into the same directory.
-'$ git clone http://github.com/rchen8/Connect-Five.git
-$ cd Connect-Five'
+Clone the repository and `cd` into the same directory.
+`$ git clone http://github.com/rchen8/Connect-Five.git`
+`$ cd Connect-Five`
 While in the same directory, compile **Game.java**
-'$ javac Game.java'
+`$ javac Game.java`
 To run the game
-'$ java Game'
+`$ java Game`
 
 ## Credits
 Created by Richard Chen
