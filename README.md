@@ -41,3 +41,5 @@ Created by Richard Chen
 Email: richardchen39@gmail.com
 
 Please feel free to contact me if you have any questions or suggestions for improvements.
+
+License: MIT License
