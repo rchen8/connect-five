@@ -37,9 +37,7 @@ Run the game.
 `$ java Game`
 
 ### About
-Created by Richard Chen  
+Copyright (c) 2015 Richard Chen under the MIT License.  
 Email: richardchen39@gmail.com
 
 Please feel free to contact me if you have any questions or suggestions for improvements.
-
-License: MIT License
