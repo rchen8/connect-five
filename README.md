@@ -26,11 +26,11 @@ The human (opening player) plays against the computer (the opposing player). AI 
 For convenience, you should add the `/bin` directory to the `PATH` environment variable.
 
 ### Getting started
-Clone the repository and `cd` into the same directory.  
+Clone the repository and `cd` into the `src` directory.  
 `$ git clone http://github.com/rchen8/Connect-Five.git`  
-`$ cd Connect-Five`
+`$ cd Connect-Five/src`
 
-While in the same directory, compile `Game.java`.  
+While in the `src` directory, compile `Game.java`.  
 `$ javac Game.java`
 
 Run the game.  
