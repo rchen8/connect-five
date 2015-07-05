@@ -40,4 +40,4 @@ Run the game.
 Copyright (c) 2015 Richard Chen under the MIT License.  
 Email: richardchen39@gmail.com
 
-Please feel free to contact me if you have any questions or suggestions for improvements.
+Please feel free to contact me if you have any questions or suggestions for improvements. Or better yet, fork this repository and submit a pull request.
